@@ -153,7 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       : _btnController.error();
                                       */
                                         Navigator.pushReplacementNamed(
-                                            context, "/home");
+                                            context, "/mainscreen");
                                       }
                                     },
                                     color: Constants().appColor,

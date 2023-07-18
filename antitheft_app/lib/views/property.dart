@@ -1,15 +1,10 @@
 import 'package:antitheft_app/utilities/constants.dart';
-import 'package:antitheft_app/widgets/property_image.dart';
+import 'package:antitheft_app/widgets/house_room.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class PropertyScreen extends StatelessWidget {
+  const PropertyScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,22 +13,15 @@ class _HomeScreenState extends State<HomeScreen> {
               scrolledUnderElevation: 50,
               backgroundColor: Constants().appColor,
               toolbarHeight: 100,
+              leadingWidth: 40,
               centerTitle: true,
-              leadingWidth: 75,
-              leading: const Padding(
-                padding: EdgeInsets.only(left: 10.0),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://ychef.files.bbci.co.uk/1600x900/p0dnxrcv.webp"),
-                ),
-              ),
               title: Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const <Widget>[
-                    Text('Bienvenida Ana',
+                    Text('Cienfuegos',
                         style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.w600,
@@ -43,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Visibility(
                         visible: true,
                         child: Text(
-                          'Elija la propiedad que desea monitorear',
+                          'Propiedad 1',
                           style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -56,21 +44,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             backgroundColor: Colors.white,
-            body: ListView.separated(
-                padding: const EdgeInsets.all(12),
+            body: GridView.builder(
+                padding: EdgeInsets.all(12.0),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio: 0.70,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20),
+                itemCount: 10,
                 itemBuilder: ((context, index) {
                   return GestureDetector(
-                    child: const PropertyImageCard(),
+                    child: const HouseRoomWidget(),
                     onTap: () {
-                      Navigator.pushNamed(context, "/property");
+                      Navigator.pushNamed(context, "/devices");
                     },
                   );
-                }),
-                separatorBuilder: ((context, index) {
-                  return const SizedBox(
-                    height: 24,
-                  );
-                }),
-                itemCount: 10)));
+                }))));
   }
 }

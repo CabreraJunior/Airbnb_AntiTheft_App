@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       : _btnController.error();
                                       */
                                         Navigator.pushReplacementNamed(
-                                            context, "/home");
+                                            context, "/mainscreen");
                                       }
                                     },
                                     color: Constants().appColor,

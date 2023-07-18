@@ -1,5 +1,8 @@
+import 'package:antitheft_app/views/devices.dart';
 import 'package:antitheft_app/views/home.dart';
 import 'package:antitheft_app/views/login.dart';
+import 'package:antitheft_app/views/mainscreen.dart';
+import 'package:antitheft_app/views/property.dart';
 import 'package:antitheft_app/views/register.dart';
 import 'package:antitheft_app/views/restore.dart';
 import 'package:antitheft_app/views/welcome.dart';
@@ -18,6 +21,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case "/restore":
         return MaterialPageRoute(builder: (_) => const RestorePasswordScreen());
+      case "/mainscreen":
+        return MaterialPageRoute(builder: (_) => const MainNavigationScreen());
+      case "/property":
+        return MaterialPageRoute(builder: (_) => const PropertyScreen());
+      case "/devices":
+        return MaterialPageRoute(builder: (_) => const DeviceScreen());
       case "/home":
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:

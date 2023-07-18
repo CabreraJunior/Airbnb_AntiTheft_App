@@ -144,7 +144,7 @@ class _RestorePasswordScreenState extends State<RestorePasswordScreen> {
                                       : _btnController.error();
                                       */
                                         Navigator.pushReplacementNamed(
-                                            context, "/home");
+                                            context, "/mainscreen");
                                       }
                                     },
                                     color: Constants().appColor,
