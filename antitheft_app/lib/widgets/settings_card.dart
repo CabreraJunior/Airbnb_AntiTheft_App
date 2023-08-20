@@ -2,7 +2,9 @@ import 'package:antitheft_app/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class SettingsCard extends StatelessWidget {
-  const SettingsCard({super.key});
+  final String text;
+  final IconData icon;
+  const SettingsCard({super.key, required this.text, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +22,13 @@ class SettingsCard extends StatelessWidget {
             height: 12,
           ),
           Icon(
-            Icons.add_home,
+            icon,
             size: 40,
           ),
           SizedBox(
             height: 12,
           ),
-          Text("Agregar Propiedad")
+          Text(text)
         ],
       ),
     );

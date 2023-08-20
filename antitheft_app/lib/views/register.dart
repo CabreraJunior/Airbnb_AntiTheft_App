@@ -1,6 +1,9 @@
+import 'package:antitheft_app/controllers/auth.dart';
 import 'package:antitheft_app/utilities/alert_manager.dart';
 import 'package:antitheft_app/utilities/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -11,12 +14,29 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  String? errorMessage = "";
+  bool isLogin = true;
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
   final TextEditingController _nameCtrl = TextEditingController();
   final TextEditingController _emailCtrl = TextEditingController();
   final TextEditingController _passwordCtrl = TextEditingController();
   bool _isObscure = true;
+
+  Future<bool> createUserWithEmailAndPassword() async {
+    FlutterSecureStorage storage = const FlutterSecureStorage();
+    try {
+      await Auth().createUserWithEmailAndPassword(
+          email: _emailCtrl.text, password: _passwordCtrl.text);
+      storage.write(key: "email", value: _emailCtrl.text);
+      return true;
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -137,23 +157,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 width: double.infinity,
                                 child: RoundedLoadingButton(
                                     onPressed: () async {
-                                      if (_nameCtrl.text.isEmpty ||
-                                          _emailCtrl.text.isEmpty ||
+                                      errorMessage == ""
+                                          ? ""
+                                          : "Humm ? $errorMessage";
+
+                                      if (_emailCtrl.text.isEmpty ||
                                           _passwordCtrl.text.isEmpty) {
                                         AlertManager().displaySnackbar(context,
                                             "Por favor, complete todos los campos.");
                                       } else {
-                                        /*
-                                  UserModel user = UserModel(
-                                      email: _emailCtrl.text,
-                                      password: _passwordCtrl.text);
-                                  await AuthService().userLogin(context, user)
-                                      ? Navigator.pushReplacementNamed(
-                                          context, homePage)
-                                      : _btnController.error();
-                                      */
-                                        Navigator.pushReplacementNamed(
-                                            context, "/mainscreen");
+                                        if (await createUserWithEmailAndPassword()) {
+                                          Navigator.pushReplacementNamed(
+                                              context, "/mainscreen");
+                                        } else {
+                                          AlertManager().displaySnackbar(
+                                              context, errorMessage);
+                                        }
                                       }
                                     },
                                     color: Constants().appColor,

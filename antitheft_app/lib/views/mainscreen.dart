@@ -1,5 +1,6 @@
 import 'package:antitheft_app/utilities/constants.dart';
 import 'package:antitheft_app/views/home.dart';
+import 'package:antitheft_app/views/logout.dart';
 import 'package:antitheft_app/views/notifications.dart';
 import 'package:antitheft_app/views/settings.dart';
 import 'package:antitheft_app/views/user.dart';
@@ -15,12 +16,7 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int index = 2;
   final screens = const [
-    Center(
-      child: Text(
-        "LOGOUT",
-        style: TextStyle(fontSize: 40),
-      ),
-    ),
+    LogoutScreen(),
     SettingsScreen(),
     HomeScreen(),
     UserScreen(),
@@ -60,8 +56,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                       selectedIcon: Icon(Icons.logout, size: 30),
                       label: "Logout"),
                   NavigationDestination(
-                      icon: Icon(Icons.settings, color: Colors.white, size: 30),
-                      selectedIcon: Icon(Icons.settings, size: 30),
+                      icon: Icon(Icons.link, color: Colors.white, size: 30),
+                      selectedIcon: Icon(Icons.link, size: 30),
                       label: "Settings"),
                   NavigationDestination(
                       icon: Icon(Icons.home, color: Colors.white, size: 30),

@@ -40,7 +40,7 @@ class _UserScreenState extends State<UserScreen> {
                 child: Visibility(
                   visible: true,
                   child: Text(
-                    'Observa y modifica tus datos',
+                    'Observa tus datos',
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -57,12 +57,13 @@ class _UserScreenState extends State<UserScreen> {
         child: Center(
             child: Column(
           children: [
-            const SizedBox(height: 18),
+            const SizedBox(height: 38),
             const CircleAvatar(
-              //backgroundImage: AssetImage("assets/avatar.jpg"),
-              radius: 60,
+              backgroundImage: NetworkImage(
+                  "https://ychef.files.bbci.co.uk/1600x900/p0dnxrcv.webp"),
+              radius: 100,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 50),
             Container(
               height: 400,
               width: double.infinity,
@@ -86,7 +87,7 @@ class _UserScreenState extends State<UserScreen> {
                                       width: 0, style: BorderStyle.none)),
                               prefixIcon: Icon(Icons.person))),
                     ),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: 50),
                     Material(
                       elevation: 10,
                       color: Colors.white,
@@ -102,43 +103,6 @@ class _UserScreenState extends State<UserScreen> {
                                       width: 0, style: BorderStyle.none)),
                               prefixIcon: Icon(Icons.email))),
                     ),
-                    const SizedBox(height: 22),
-                    Material(
-                      elevation: 10,
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      shadowColor: Colors.black,
-                      child: TextField(
-                          enabled: false,
-                          obscureText: true,
-                          controller: _passCtrl,
-                          style: const TextStyle(fontSize: 18, height: 1),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 0, style: BorderStyle.none)),
-                              prefixIcon: Icon(Icons.fingerprint),
-                              suffixIcon: IconButton(
-                                  onPressed: (() {}),
-                                  icon: Icon(Icons.remove_red_eye)))),
-                    ),
-                    const SizedBox(height: 34),
-                    SizedBox(
-                        height: 60,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              // Navigator.pop(context);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Constants().appColor,
-                              shape: const StadiumBorder(),
-                            ),
-                            child: const Text(
-                              "Update Profile",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w600),
-                            ))),
                   ],
                 ),
               ),

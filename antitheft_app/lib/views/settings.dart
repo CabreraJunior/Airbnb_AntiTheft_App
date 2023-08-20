@@ -24,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const <Widget>[
-                    Text('Configuración',
+                    Text('Servicios',
                         style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.w600,
@@ -34,7 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: Visibility(
                         visible: true,
                         child: Text(
-                          'Configura tus propiedades y dispositivos',
+                          'Escribenos con cualquier servicio que necesites',
                           style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -48,17 +48,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             backgroundColor: Colors.white,
             body: GridView(
-              padding: EdgeInsets.all(14),
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              padding: const EdgeInsets.all(14),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
                   childAspectRatio: 0.70,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20),
-              children: [
-                SettingsCard(),
-                SettingsCard(),
-                SettingsCard(),
-                SettingsCard()
+              children: const [
+                SettingsCard(
+                  icon: Icons.house,
+                  text: 'Evaluación',
+                ),
+                SettingsCard(
+                  icon: Icons.signal_wifi_4_bar,
+                  text: 'Conexión',
+                ),
+                SettingsCard(
+                  icon: Icons.settings,
+                  text: 'Configuración',
+                ),
+                SettingsCard(
+                  icon: Icons.monetization_on,
+                  text: 'Venta',
+                ),
+                SettingsCard(
+                  icon: Icons.monitor,
+                  text: 'Monitoreo',
+                ),
+                SettingsCard(
+                  icon: Icons.design_services,
+                  text: 'Diseño',
+                ),
               ],
             )));
   }

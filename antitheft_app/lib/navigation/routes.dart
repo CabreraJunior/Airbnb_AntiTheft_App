@@ -6,6 +6,7 @@ import 'package:antitheft_app/views/property.dart';
 import 'package:antitheft_app/views/register.dart';
 import 'package:antitheft_app/views/restore.dart';
 import 'package:antitheft_app/views/welcome.dart';
+import 'package:antitheft_app/widget_tree.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -14,6 +15,8 @@ class RouteGenerator {
 
     switch (settings.name) {
       case "/":
+        return MaterialPageRoute(builder: (_) => const WidgetTree());
+      case "/welcome":
         return MaterialPageRoute(builder: (_) => const WelcomeScreen());
       case "/login":
         return MaterialPageRoute(builder: (_) => const LoginScreen());
@@ -24,7 +27,7 @@ class RouteGenerator {
       case "/mainscreen":
         return MaterialPageRoute(builder: (_) => const MainNavigationScreen());
       case "/property":
-        return MaterialPageRoute(builder: (_) => const PropertyScreen());
+        return MaterialPageRoute(builder: (_) => PropertyScreen(data: args));
       case "/devices":
         return MaterialPageRoute(builder: (_) => const DeviceScreen());
       case "/home":

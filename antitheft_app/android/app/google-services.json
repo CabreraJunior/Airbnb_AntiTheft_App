@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "951488395844",
+    "firebase_url": "https://antitheftapp-63d86-default-rtdb.firebaseio.com",
+    "project_id": "antitheftapp-63d86",
+    "storage_bucket": "antitheftapp-63d86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951488395844:android:4010b6408af96e99095a11",
+        "android_client_info": {
+          "package_name": "com.example.antitheft_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951488395844-sej47m01bc9vhl03vpnrc4rfthdtqjsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTRu8eyTzGSWFQj_6biKXVTclTgWbevTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951488395844-sej47m01bc9vhl03vpnrc4rfthdtqjsb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

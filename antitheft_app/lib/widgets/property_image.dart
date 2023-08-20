@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PropertyImageCard extends StatelessWidget {
-  const PropertyImageCard({super.key});
+  final String propertyName;
+  const PropertyImageCard({super.key, required this.propertyName});
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +11,8 @@ class PropertyImageCard extends StatelessWidget {
       height: 165,
       child: Stack(
         fit: StackFit.expand,
-        children: const <Widget>[
-          ClipRRect(
+        children: <Widget>[
+          const ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             child: Image(
               color: Color.fromARGB(80, 0, 0, 0),
@@ -26,8 +27,8 @@ class PropertyImageCard extends StatelessWidget {
             bottom: 8,
             left: 10,
             child: Text(
-              "Propiedad 1 - Cienfuegos",
-              style: TextStyle(
+              "Propiedad $propertyName",
+              style: const TextStyle(
                   fontFamily: 'AirbnbCerealBold',
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

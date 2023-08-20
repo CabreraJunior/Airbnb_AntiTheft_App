@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HouseRoomWidget extends StatelessWidget {
-  const HouseRoomWidget({super.key});
+  final String roomName;
+  const HouseRoomWidget({super.key, required this.roomName});
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +11,8 @@ class HouseRoomWidget extends StatelessWidget {
       height: 250,
       child: Stack(
         fit: StackFit.expand,
-        children: const <Widget>[
-          ClipRRect(
+        children: <Widget>[
+          const ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             child: Image(
               color: Color.fromARGB(80, 0, 0, 0),
@@ -26,8 +27,8 @@ class HouseRoomWidget extends StatelessWidget {
             bottom: 8,
             left: 10,
             child: Text(
-              "Habitacion 1",
-              style: TextStyle(
+              roomName,
+              style: const TextStyle(
                   fontFamily: 'AirbnbCerealBold',
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
