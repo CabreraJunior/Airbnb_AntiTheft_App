@@ -41,6 +41,34 @@ class FireData {
     return rooms;
   }
 
+  Future<List> getRoomDevices(int idRoom) async {
+    List devices = [];
+    CollectionReference collectionReferenceProperties =
+        database.collection("Dispositivo");
+
+    QuerySnapshot queryDevices = await collectionReferenceProperties
+        .where("Room", isEqualTo: idRoom)
+        .get();
+    for (var element in queryDevices.docs) {
+      devices.add(element.data());
+    }
+
+    return devices;
+  }
+
+  Future<List> getAllDevices() async {
+    List devices = [];
+    CollectionReference collectionReferenceProperties =
+        database.collection("Dispositivo");
+
+    QuerySnapshot queryDevices = await collectionReferenceProperties.get();
+    for (var element in queryDevices.docs) {
+      devices.add(element.data());
+    }
+
+    return devices;
+  }
+
   Future<void> getUser() async {
     FlutterSecureStorage storage = const FlutterSecureStorage();
     dynamic email = await storage.read(key: 'email');

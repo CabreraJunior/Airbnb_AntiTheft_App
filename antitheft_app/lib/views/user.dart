@@ -1,5 +1,6 @@
 import 'package:antitheft_app/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -8,16 +9,24 @@ class UserScreen extends StatefulWidget {
   State<UserScreen> createState() => _UserScreenState();
 }
 
-final TextEditingController _nameCtrl =
-    TextEditingController(text: "Ana Martinez Delgago");
-final TextEditingController _emailCtrl =
-    TextEditingController(text: "anaconda@gmail.com");
-final TextEditingController _passCtrl =
-    TextEditingController(text: "xxxxxxxxx");
+dynamic name = "Usuario";
+dynamic email = "user1@gmail.com";
+
+Future<void> getNameEmail() async {
+  FlutterSecureStorage storage = const FlutterSecureStorage();
+  name = await storage.read(key: 'name');
+  email = await storage.read(key: 'email');
+  _nameCtrl.text = name;
+  _emailCtrl.text = email;
+}
+
+final TextEditingController _nameCtrl = TextEditingController(text: name);
+final TextEditingController _emailCtrl = TextEditingController(text: email);
 
 class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
+    getNameEmail();
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(

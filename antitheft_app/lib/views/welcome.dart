@@ -35,39 +35,15 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       const Text(
-                          "Breve descripcion muy bonita que nos inventaremos despues",
-                          style: TextStyle(fontSize: 18),
-                          textAlign: TextAlign.center),
-                      const SizedBox(height: 50),
+                        "Controla con Confianza. Monitorea con Éxito \n Tu Solución de Gestión en Airbnb",
+                        style: TextStyle(fontSize: 18, height: 1.5),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 30),
                       Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 148),
-                            child: SizedBox(
-                              height: 50,
-                              width: 160,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, "/register");
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 20,
-                                  backgroundColor: Colors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: const Text("Registrarte",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white)),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 148),
+                            padding: const EdgeInsets.all(20),
                             child: SizedBox(
                               height: 50,
                               width: 160,

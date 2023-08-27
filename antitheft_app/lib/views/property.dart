@@ -68,7 +68,11 @@ class PropertyScreen extends StatelessWidget {
                       roomName: rooms[index]["Name"],
                     ),
                     onTap: () {
-                      Navigator.pushNamed(context, "/devices");
+                      Navigator.pushNamed(context, "/devices", arguments: [
+                        rooms[index]["Name"],
+                        index + 1,
+                        rooms[index]["Id"]
+                      ]);
                     },
                   );
                 }));

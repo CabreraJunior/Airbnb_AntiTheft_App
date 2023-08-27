@@ -29,7 +29,7 @@ class RouteGenerator {
       case "/property":
         return MaterialPageRoute(builder: (_) => PropertyScreen(data: args));
       case "/devices":
-        return MaterialPageRoute(builder: (_) => const DeviceScreen());
+        return MaterialPageRoute(builder: (_) => DeviceScreen(data: args));
       case "/home":
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,6 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailCtrl = TextEditingController();
   final TextEditingController _passwordCtrl = TextEditingController();
   bool _isObscure = true;
+  final Uri _url = Uri.parse(
+      "https://docs.google.com/forms/d/143jVqzu3fhMl8BIrRUH4_WSxBHREvr1F94vF5qtAjrg/prefill?pli=1");
 
   Future<bool> signInWithEmailAndPassword() async {
     FlutterSecureStorage storage = const FlutterSecureStorage();
@@ -35,6 +38,12 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     }
     return false;
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 
   @override
@@ -131,19 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             : Icons.visibility_off)),
                                   )),
                             ),
-                            const SizedBox(height: 8),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, "/restore");
-                                },
-                                child: Text(
-                                  "Olvidaste tu contraseña? Recupérala",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                      color: Constants().appColor),
-                                )),
+                            const SizedBox(height: 32),
                             const SizedBox(height: 10),
                             SizedBox(
                                 width: double.infinity,
@@ -187,11 +184,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             const SizedBox(height: 4),
                             TextButton(
                                 onPressed: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, "/register");
+                                  _launchUrl();
                                 },
                                 child: Text(
-                                  "No tienes cuenta? Regístrate",
+                                  "No tienes cuenta? Solicítala",
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,

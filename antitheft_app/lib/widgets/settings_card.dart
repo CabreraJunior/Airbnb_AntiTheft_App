@@ -11,21 +11,21 @@ class SettingsCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Constants().appColor, width: 3),
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+          borderRadius: const BorderRadius.all(Radius.circular(20))),
       height: 200,
       width: 200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Icon(
             icon,
             size: 40,
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Text(text)

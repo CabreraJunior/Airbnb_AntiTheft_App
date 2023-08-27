@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
 
 class DeviceWidget extends StatelessWidget {
-  const DeviceWidget({super.key});
+  final String deviceName;
+  final bool status;
+  final IconData newIcon;
+  const DeviceWidget(
+      {super.key,
+      required this.deviceName,
+      required this.status,
+      required this.newIcon});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20))),
-      tileColor: Color.fromARGB(255, 185, 207, 223),
+      tileColor: Colors.blueGrey.shade100,
       leading: Icon(
-        Icons.tv,
+        newIcon,
         size: 30,
+        color: Colors.black,
       ),
       title: Text(
-        'TV',
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        deviceName,
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.blueGrey.shade900),
       ),
       trailing: CircleAvatar(
-        radius: 10,
-        backgroundColor: Colors.green,
+        radius: 14,
+        backgroundColor: status ? Colors.green : Colors.red,
       ),
     );
   }
