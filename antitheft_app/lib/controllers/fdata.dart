@@ -1,3 +1,4 @@
+import 'package:antitheft_app/utilities/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -82,5 +83,24 @@ class FireData {
     }
 
     storage.write(key: "name", value: users[0]["Name"]);
+  }
+
+  Future<List> getNotifications() async {
+    List notis = [];
+    CollectionReference collectionReferencenotis =
+        database.collection("Notifications");
+
+    QuerySnapshot queryDevices = await collectionReferencenotis.get();
+    for (var element in queryDevices.docs) {
+      notis.add(element.data());
+    }
+
+    return notis;
+  }
+
+  Future<void> addNotifications(String title, String description) async {
+    await database
+        .collection("Notifications")
+        .add({"Title": title, "Description": description});
   }
 }

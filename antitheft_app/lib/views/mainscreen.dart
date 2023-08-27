@@ -1,7 +1,11 @@
+import 'dart:async';
+
+import 'package:antitheft_app/controllers/notidata.dart';
 import 'package:antitheft_app/utilities/constants.dart';
 import 'package:antitheft_app/views/home.dart';
 import 'package:antitheft_app/views/logout.dart';
 import 'package:antitheft_app/views/notifications.dart';
+import 'package:antitheft_app/views/sendnot.dart';
 import 'package:antitheft_app/views/settings.dart';
 import 'package:antitheft_app/views/user.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +17,8 @@ class MainNavigationScreen extends StatefulWidget {
   State<MainNavigationScreen> createState() => _MainNavigationScreenState();
 }
 
+Timer? timer;
+
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int index = 2;
   final screens = const [
@@ -22,6 +28,19 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     UserScreen(),
     NotificationsScreen()
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(const Duration(seconds: 20),
+        (Timer t) async => await NotificationData().callAll());
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -17,4 +17,6 @@ class Constants {
   //Picture Endpoints
   String profilePictureEP = "/upload/profile";
   String photosEP = "/upload/photos";
+
+  List<dynamic> notifications = [];
 }

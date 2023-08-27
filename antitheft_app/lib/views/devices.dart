@@ -7,7 +7,7 @@ class DeviceScreen extends StatelessWidget {
   final dynamic data;
   const DeviceScreen({super.key, this.data});
 
-  bool getStatus(String name, double value) {
+  bool getStatus(String name, dynamic value) {
     bool out = true;
     if (name == "Televisión") {
       if (value <= 0.7) {

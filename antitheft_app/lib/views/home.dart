@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:antitheft_app/controllers/auth.dart';
 import 'package:antitheft_app/controllers/fdata.dart';
 import 'package:antitheft_app/utilities/constants.dart';
@@ -11,6 +12,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+Timer? timer;
 dynamic name = "Usuario";
 
 Future<void> getName() async {
