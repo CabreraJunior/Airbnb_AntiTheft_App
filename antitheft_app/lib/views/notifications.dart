@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:antitheft_app/controllers/fdata.dart';
 import 'package:antitheft_app/utilities/constants.dart';
 import 'package:antitheft_app/widgets/notification_tile.dart';
@@ -13,8 +11,6 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-  final List<String> items = List<String>.generate(100, (i) => '$i');
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

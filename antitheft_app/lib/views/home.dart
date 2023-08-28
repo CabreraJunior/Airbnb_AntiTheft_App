@@ -22,8 +22,14 @@ Future<void> getName() async {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     getName();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    //getName();
     return SafeArea(
       child: FutureBuilder(
         future: Auth().getCurrentUser(),
@@ -50,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text("Bienvenido $name",
+                      Text("Bienvenido ${name ?? "Manuel"}",
                           style: const TextStyle(
                               fontSize: 24.0,
                               fontWeight: FontWeight.w600,

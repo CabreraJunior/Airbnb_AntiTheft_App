@@ -12,7 +12,7 @@ class NotificationTile extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 48, 119, 119),
         child: Text("${index + 1}"),
       ),
-      title: Text(items[0]),
+      title: Text(items[0] ?? "Sensor Extra"),
       subtitle: Text(items[1]),
       trailing: const Icon(Icons.notification_important_outlined),
     );

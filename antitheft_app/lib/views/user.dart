@@ -10,13 +10,13 @@ class UserScreen extends StatefulWidget {
 }
 
 dynamic name = "Usuario";
-dynamic email = "user1@gmail.com";
+dynamic email = "manu@gmail.com";
 
 Future<void> getNameEmail() async {
   FlutterSecureStorage storage = const FlutterSecureStorage();
   name = await storage.read(key: 'name');
   email = await storage.read(key: 'email');
-  _nameCtrl.text = name;
+  _nameCtrl.text = name ?? " Manuel";
   _emailCtrl.text = email;
 }
 
@@ -25,8 +25,14 @@ final TextEditingController _emailCtrl = TextEditingController(text: email);
 
 class _UserScreenState extends State<UserScreen> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     getNameEmail();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    //getNameEmail();
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(

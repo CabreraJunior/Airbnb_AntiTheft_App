@@ -32,7 +32,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(const Duration(seconds: 20),
+    timer = Timer.periodic(const Duration(seconds: 90),
         (Timer t) async => await NotificationData().callAll());
   }
 
