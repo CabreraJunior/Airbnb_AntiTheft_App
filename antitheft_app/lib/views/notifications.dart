@@ -52,7 +52,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         future: FireData().getNotifications(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            List notis = snapshot.data;
+            List output = snapshot.data;
+            List notis = List.from(output.reversed);
             return ListView.builder(
               itemCount: notis.length,
               itemBuilder: (context, index) {

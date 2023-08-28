@@ -51,8 +51,8 @@ class NotificationData {
           initializePlugin();
           showNotifications(
               dev["Name"], "Alerta", dev["Room"].toInt().toString());
-          await FireData().addNotifications("Sensor de ${dev["Name"]}",
-              "Alerta - Hab. ${dev["Room"].toInt()}");
+          await FireData().addNotifications(
+              "Sensor de Televisión", "Alerta - Hab. ${dev["Room"].toInt()}");
         }
       }
       if (dev["Name"] == "Decibeles") {
@@ -61,8 +61,8 @@ class NotificationData {
           initializePlugin();
           showNotifications(
               dev["Name"], "Alerta", dev["Room"].toInt().toString());
-          await FireData().addNotifications("Sensor de ${dev["Name"]}",
-              "Alerta - Hab. ${dev["Room"].toInt()}");
+          await FireData().addNotifications(
+              "Sensor de Decibeles", "Alerta - Hab. ${dev["Room"].toInt()}");
         }
       }
       if (dev["Name"] == "Humo") {
@@ -71,8 +71,8 @@ class NotificationData {
           initializePlugin();
           showNotifications(
               dev["Name"], "Alerta", dev["Room"].toInt().toString());
-          await FireData().addNotifications("Sensor de ${dev["Name"]}",
-              "Alerta - Hab. ${dev["Room"].toInt()}");
+          await FireData().addNotifications(
+              "Sensor de Humo", "Alerta - Hab. ${dev["Room"].toInt()}");
         }
       }
     }
